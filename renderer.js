@@ -5,7 +5,6 @@
 
 
 const recette = "chicken" //recette par défault
-
 const boutton = document.getElementById("btn")
 const container = document.getElementById("container")
 
