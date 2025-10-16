@@ -1,0 +1,21 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-4 {
+  display: flex;
+}
+
+.card {
+  flex: 1 1 auto;
+  height: 100%;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+.container {
+    background-color: rgb(52, 52, 54);
+}

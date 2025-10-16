@@ -1,0 +1,11 @@
+{
+  "name": "appli_api_js",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8"
+  }
+}
