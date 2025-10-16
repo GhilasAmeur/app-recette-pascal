@@ -10,8 +10,11 @@ const container = document.getElementById("container")
 
 container.addEventListener("click", (e) => {
 
+
+
 if (e.target.tagName === "IMG") {
   const id = e.target.closest(".card").dataset.id;
+ 
 
   fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
     .then(data => data.json())
@@ -64,6 +67,7 @@ btnRetour.addEventListener("click", () => {
     });
 }
 
+
   
 })
 
@@ -89,7 +93,6 @@ function appelApii(inputRecette) {
 
       if (!data.meals) { container.innerHTML = `<p class="text-danger">Aucun contenu trouvé</p>`; }
 
-      console.log(data.meals)
 
       const div1 = document.createElement("div");
       div1.classList.add("row", "g-3");
@@ -121,10 +124,15 @@ function appelApii(inputRecette) {
 
         const p2 = document.createElement("p")
 
-
         const a = document.createElement("a")
         a.classList.add("link-opacity-60",)
         a.innerText = "lire la suite.."
+
+         a.addEventListener("click", function (e) {
+    e.preventDefault(); 
+    p1.innerText = element.strInstructions;
+   
+  });
 
         div4.appendChild(h5)
         div4.appendChild(p1)
