@@ -1,3 +1,9 @@
+
+// git add .
+// git commit -m "Ajout de la fonction de recherche de recettes"
+// git push
+
+
 const recette = "chicken" //recette par défault
 
 const boutton = document.getElementById("btn")
@@ -11,13 +17,9 @@ if (e.target.tagName === "IMG") {
   fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
     .then(data => data.json())
     .then(data => {
- 
-
 
       const container = document.getElementById("container");
       container.innerHTML = "";
-
- 
 
       const meal = data.meals[0];
       let navbar = document.getElementById("navbar")
@@ -40,7 +42,8 @@ if (e.target.tagName === "IMG") {
 
 // Action du bouton
 btnRetour.addEventListener("click", () => {
-  appelApii(recette); // Recharge la liste avec la recette actuelle
+  appelApii(recette);
+  navbar.style.display = "block";   
 });
 
 
@@ -68,20 +71,20 @@ btnRetour.addEventListener("click", () => {
 boutton.addEventListener("click", function (e) {
   e.preventDefault()
 
-  const recette = document.getElementById("input") //je recupère la rectete sasie par l'utilisateur
-  console.log(recette.value)
-  appelApii(recette.value)//on passe la recettte à rechercher
-  recette.value = ""
+  const inputRecette = document.getElementById("input") //je recupère la rectete sasie par l'utilisateur
+  console.log(inputRecette.value)
+  appelApii(inputRecette.value)//on passe la recettte à rechercher
+  inputRecette.value = ""
 
 
 })
 
-function appelApii(recette) {
+function appelApii(inputRecette) {
 
   const container = document.getElementById("container")
   container.innerHTML = ""
 
-  fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=` + recette)
+  fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=` + inputRecette)
     .then(data => data.json())
     .then(data => {
 
